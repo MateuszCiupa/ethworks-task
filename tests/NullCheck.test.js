@@ -1,5 +1,10 @@
 "use strict";
 
+var { 
+    Expression, 
+    getSumOfExpressions 
+} = require("..");
+
 describe("Null check tests", () => {
     var exp1, exp2;
 
@@ -71,7 +76,7 @@ describe("Null check tests", () => {
             expect(result).toEqual(expected);
         });
     
-        test("Heads of both expressions are null", () => {
+        test("Heads of both Expressions are null", () => {
             var result = getSumOfExpressions(exp1, exp2).toArray();
             var expected = [];
     

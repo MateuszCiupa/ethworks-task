@@ -1,10 +1,7 @@
 var { 
-    Expression, 
-    getSumOfExpressions 
-} = require("./index");
+    Expression
+} = require(".");
 
-global.Expression = Expression;
-global.getSumOfExpressions = getSumOfExpressions;
 global.getRandExpression = getRandExpression;
 global.getExpressionFromArray = getExpressionFromArray;
 global.getRandArray = getRandArray;
@@ -50,10 +47,54 @@ function getRandArray({
     return arr;
 }
 
-function getBruteSumOfArrays(arr1, arr2) {
+function getBruteSumOfArrays(arr1 = [], arr2 = []) {
     var result = [];
 
+    arr1 = arr1.sort(compareTuplesDesc);
+    arr2 = arr2.sort(compareTuplesDesc);
+
+    while (arr1.length > 0 && arr2.length > 0) {
+        let [const1, exp1] = arr1[0];
+        let [const2, exp2] = arr2[0];
     
+        if (exp1 > exp2) {
+            result.push([const1, exp1]);
+            arr1.shift();
+        }
+        else if (exp1 < exp2) {
+            result.push([const2, exp2]);
+            arr2.shift();
+        }
+        else {
+            result.push([const1 + const2, exp1]);
+            arr1.shift();
+            arr2.shift();
+        }
+    }
+
+    if (arr1.length > 0) {
+        var tail = arr1;
+    }
+    else {
+        var tail = arr2;
+    }
+
+    while (tail.length > 0) {
+        let [constant, exponent] = tail[0];
+        result.push([constant, exponent]);
+        tail.shift();
+    }
+
+    return result;
+
+    // **********
+
+    function compareTuplesDesc(tpl1, tpl2) {
+        var [, exp1] = tpl1;
+        var [, exp2] = tpl2;
+
+        return exp2 - exp1;
+    }
 }
 
 function getRandRealNumber(min = 0, max = 100) {
