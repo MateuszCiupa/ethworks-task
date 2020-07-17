@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
     Expression,
     getSumOfExpressions
@@ -55,6 +57,10 @@ function Expression() {
     // **********
 
     function insert(constant, exponent) {
+        if (!constant) {
+            return;
+        }
+
         if (!head) {
             head = Term(constant, exponent);
         }

@@ -58,15 +58,21 @@ function getBruteSumOfArrays(arr1 = [], arr2 = []) {
         let [const2, exp2] = arr2[0];
     
         if (exp1 > exp2) {
-            result.push([const1, exp1]);
+            if (!!const1) {
+                result.push([const1, exp1]);
+            }
             arr1.shift();
         }
         else if (exp1 < exp2) {
-            result.push([const2, exp2]);
+            if (!!const2) {
+                result.push([const2, exp2]);
+            }
             arr2.shift();
         }
         else {
-            result.push([const1 + const2, exp1]);
+            if (!!(const1 + const2)) {
+                result.push([const1 + const2, exp1]);
+            }
             arr1.shift();
             arr2.shift();
         }
