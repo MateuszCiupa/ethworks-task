@@ -30,6 +30,7 @@ function Term(constant = 0, exponent = 0) {
 
     // **********
 
+    /* istanbul ignore next */
     function toString() {
         return `${constant}${!!exponent ? `*x^${exponent}` : ""}`;
     }
@@ -96,6 +97,7 @@ function Expression() {
         }
     }
 
+    /* istanbul ignore next */
     function toString() {
         var str = "f(x) = ";
 
