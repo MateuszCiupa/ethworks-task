@@ -57,7 +57,12 @@ function Expression() {
     // **********
 
     function insert(constant, exponent) {
-        if (!constant) {
+        if (
+            !constant ||
+            typeof constant != "number" ||
+            typeof exponent != "number" ||
+            exponent !== exponent
+        ) {
             return;
         }
 
