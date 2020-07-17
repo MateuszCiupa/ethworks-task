@@ -127,7 +127,10 @@ function Expression() {
 }
 
 function getSumOfExpressions(exp1, exp2) {
-    if (!exp1) {
+    if (!exp1 && !exp2) {
+        return Expression();
+    }
+    else if (!exp1) {
         return exp2;
     }
     else if (!exp2) {

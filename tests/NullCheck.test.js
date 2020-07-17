@@ -36,8 +36,8 @@ describe("Null check tests", () => {
             exp1 = null;
             exp2 = null;
 
-            var result = getSumOfExpressions(exp1, exp2);
-            var expected = null;
+            var result = getSumOfExpressions(exp1, exp2).toArray();
+            var expected = [];
 
             expect(result).toEqual(expected);
         });
