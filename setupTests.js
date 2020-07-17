@@ -6,7 +6,9 @@ var {
 global.Expression = Expression;
 global.getSumOfExpressions = getSumOfExpressions;
 global.getRandExpression = getRandExpression;
-global.getRandArrayOfTuples = getRandArray;
+global.getExpressionFromArray = getExpressionFromArray;
+global.getRandArray = getRandArray;
+global.getBruteSumOfArrays = getBruteSumOfArrays;
 
 // **********
 // "Array" is meant to be "array of tuples where tuple consists of constant (coefficient) and exponent".
@@ -48,8 +50,8 @@ function getRandArray({
     return arr;
 }
 
-function getSumOfExpressionsFromArrays(arr1, arr2) {
-    var result;
+function getBruteSumOfArrays(arr1, arr2) {
+    var result = [];
 
     
 }
