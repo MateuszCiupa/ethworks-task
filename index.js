@@ -101,7 +101,8 @@ function Expression() {
 
         if (!head) {
             str += String(head);
-        } else {
+        } 
+        else {
             let current = head;
 
             while (!!current) {
